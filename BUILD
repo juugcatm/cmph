@@ -1,3 +1,5 @@
+
+
 cc_library (
     name = "libcmph",
     srcs = [f for f in glob(["src/*.c"]) if f != "src/main.c"],
@@ -11,6 +13,7 @@ cc_library (
         "-fomit-frame-pointer",
     ],
     includes = ["src/."],
+    visibility = ["//visibility:public"],
 )
 
 cc_binary (
@@ -20,5 +23,6 @@ cc_binary (
     ],
     deps = [
         "//:libcmph",
-    ]
+    ],
+    visibility = ["//visibility:public"],
 )
