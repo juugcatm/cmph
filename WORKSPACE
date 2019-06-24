@@ -52,6 +52,11 @@ git_repository (
 )
 
 bind (
+    name = "gtest",
+    actual = "@com_google_googletest//:gtest",
+)
+
+bind (
     name = "gtest_main",
     actual = "@com_google_googletest//:gtest_main",
 )
