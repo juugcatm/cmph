@@ -85,3 +85,14 @@ cc_test (
         "//external:gtest_main",
     ],
 )
+
+cc_test (
+    name = "seeded_hash_test",
+    srcs = [
+        "seeded_hash_test.cc",
+    ],
+    deps = [
+        ":libcxxmph",
+        "//external:gtest_main",
+    ],
+)
