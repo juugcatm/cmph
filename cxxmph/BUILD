@@ -108,3 +108,13 @@ cc_test (
     ],
 )
 
+cc_test (
+    name = "trigraph_test",
+    srcs = [
+        "trigraph_test.cc",
+    ],
+    deps = [
+        ":libcxxmph",
+        "//external:gtest_main",
+    ],
+)
