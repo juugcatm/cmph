@@ -87,6 +87,17 @@ cc_test (
 )
 
 cc_test (
+    name = "hollow_iterator_test",
+    srcs = [
+        "hollow_iterator_test.cc",
+    ],
+    deps = [
+        ":libcxxmph",
+        "//external:gtest_main",
+    ],
+)
+
+cc_test (
     name = "seeded_hash_test",
     srcs = [
         "seeded_hash_test.cc",
@@ -96,3 +107,4 @@ cc_test (
         "//external:gtest_main",
     ],
 )
+
