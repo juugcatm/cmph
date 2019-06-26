@@ -7,6 +7,7 @@
 #include <vector>
 #include <unordered_map>
 
+#include "glog/logging.h"
 #include "gtest/gtest.h"
 
 #include "string_util.h"
@@ -109,12 +110,12 @@ struct MapTester {
     }
     for (int i = nkeys - 1; i >= 0; --i) { if (m.find(i) == m.end()) return false; }
     for (int i = nkeys - 1; i >= 0; --i) {
-      ASSERT_TRUE(m.find(i) != m.end()) << "after erase " << i << " cannot be found";
-      ASSERT_TRUE(m.find(i)->first == i) << "after erase key " << i << " cannot be found";
+      CHECK(m.find(i) != m.end()) << "after erase " << i << " cannot be found";
+      CHECK(m.find(i)->first == i) << "after erase key " << i << " cannot be found";
     }
     for (int i = nkeys - 1; i >= 0; --i) {
-      ASSERT_TRUE(m.find(i) != m.end()) << "after erase " << i << " cannot be found";
-      ASSERT_TRUE(m.find(i)->first == i) << "after erase key " << i << " cannot be found";
+      CHECK(m.find(i) != m.end()) << "after erase " << i << " cannot be found";
+      CHECK(m.find(i)->first == i) << "after erase key " << i << " cannot be found";
       if (!(m.find(i)->first == i)) return false;
       m.erase(m.find(i));
       if (static_cast<int>(m.size()) != i) return false;
@@ -126,7 +127,7 @@ struct MapTester {
     int nkeys = 10 * 1000;
     for (int i = 0; i < nkeys; ++i) { m.insert(make_pair(i, i)); }
     for (int i = nkeys - 1; i >= 0; --i) { 
-      ASSERT_TRUE(m.find(i) != m.end());
+      CHECK(m.find(i) != m.end());
       m.erase(i);
       if (static_cast<int>(m.size()) != i) return false;
     }

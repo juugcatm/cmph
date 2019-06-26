@@ -60,6 +60,7 @@ cc_library (
     ],
     deps = [
         ":libcxxmph",
+        "//external:glog",
         "//external:gtest",
     ],
 )
